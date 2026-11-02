@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101827" />
+  <title>Live Face Detection</title>
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="eyebrow">COMPUTER VISION PROJECT</div>
+      <h1>Live Face Detection</h1>
+      <p class="subtitle">Real-time face detection powered by MediaPipe in your browser.</p>
+    </header>
+
+    <section class="panel">
+      <div class="toolbar">
+        <div class="status-wrap">
+          <span id="statusDot" class="status-dot"></span>
+          <span id="statusText" role="status" aria-live="polite">Camera is off</span>
+        </div>
+        <div class="actions">
+          <button id="startButton" class="button primary">Start camera</button>
+          <button id="stopButton" class="button secondary" disabled>Stop camera</button>
+        </div>
+      </div>
+
+      <div class="video-stage" id="videoStage">
+        <video id="video" autoplay playsinline muted></video>
+        <canvas id="overlay"></canvas>
+        <div id="placeholder" class="placeholder">
+          <div class="camera-icon" aria-hidden="true">◉</div>
+          <h2>Your camera preview will appear here</h2>
+          <p>Select <strong>Start camera</strong> and allow camera access when your browser asks.</p>
+        </div>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <span class="stat-label">Faces detected</span>
+          <strong id="faceCount">0</strong>
+        </div>
+        <div class="stat-card">
+          <span class="stat-label">Detection</span>
+          <strong id="detectionState">Waiting</strong>
+        </div>
+      </div>
+      <p class="hint">Privacy: video is processed locally in your browser. This demo does not upload or store camera footage.</p>
+      <p id="errorMessage" class="error" role="alert"></p>
+    </section>
+
+    <footer>Built with JavaScript + MediaPipe Face Detector · Deployable on Vercel</footer>
+  </main>
+  <script type="module" src="./script.js"></script>
+</body>
+</html>
